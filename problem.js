@@ -6,14 +6,14 @@
 function reverseString(inputString) {
     let reversedString = '';
     for (let i = inputString.length - 1; i >= 0; i--) {
-      reversedString += inputString.charAt(i);
+        reversedString += inputString.charAt(i);
     }
     return reversedString;
-  }
-  const inputString = "Hello, world!";
-  const reversed = reverseString(inputString);
+}
+const inputString = "Hello, world!";
+const reversed = reverseString(inputString);
 //   console.log(reversed);
-    
+
 
 //Problem-2:Create a function that takes an array of numbers as input and returns the sum of all positive numbers in the array. 
 
@@ -23,14 +23,14 @@ function reverseString(inputString) {
 function sumPositiveNumbers(arr) {
     let sum = 0;
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] > 0) {
-        sum += arr[i];
-      }
+        if (arr[i] > 0) {
+            sum += arr[i];
+        }
     }
     return sum;
-  }
-  
-  const numbers = [2, -5, 10, -3, 7];
+}
+
+const numbers = [2, -5, 10, -3, 7];
 const result = sumPositiveNumbers(numbers);
 // console.log(result);
 
@@ -40,96 +40,123 @@ const result = sumPositiveNumbers(numbers);
 //Input: [3, 5, 2, 5, 3, 3, 1, 4, 5]
 //Output:3
 
+function findMostFrequentElement(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+        return null;
+    }
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+    const elementCount = {};
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+    for (const element of arr) {
+        elementCount[element] = (elementCount[element] || 0) + 1;
+    }
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+    let mostFrequentElement = arr[0];
+    let maxFrequency = 1;
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+    for (const element in elementCount) {
+        if (elementCount[element] > maxFrequency) {
+            mostFrequentElement = element;
+            maxFrequency = elementCount[element];
+        }
+    }
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+    return mostFrequentElement;
+}
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+const array = [3, 5, 2, 5, 3, 3, 1, 4, 5];
+const mostFrequent = findMostFrequentElement(array);
+//   console.log("The most frequent element is:", mostFrequent);
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+//Problem-4: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number.
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+function findSecondSmallest(arr) {
+    if (!Array.isArray(arr) || arr.length < 2) {
+        throw new Error('Input should be an array with at least two elements.');
+    }
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+    let smallest = Infinity;
+    let secondSmallest = Infinity;
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+    for (let num of arr) {
+        if (num < smallest) {
+            secondSmallest = smallest;
+            smallest = num;
+        } else if (num < secondSmallest && num !== smallest) {
+            secondSmallest = num;
+        }
+    }
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+    if (secondSmallest === Infinity) {
+        throw new Error('There is no second smallest element in the array.');
+    }
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+    return secondSmallest;
+}
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+//Problem-5:Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+//input:MMXXIII;
+//output:2023;
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+function romanToInt(romanNumeral) {
+    const romanMap = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    };
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+    let result = 0;
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+    for (let i = 0; i < romanNumeral.length; i++) {
+        const currentSymbol = romanNumeral[i];
+        const currentValue = romanMap[currentSymbol];
+        const nextValue = romanMap[romanNumeral[i + 1]];
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+        if (nextValue > currentValue) {
+            result += nextValue - currentValue;
+            i++;
+        } else {
+            result += currentValue;
+        }
+    }
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+    return result;
+}
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+// console.log(romanToInt("MMXXIII")); 
 
-//Input: "hello world"
-//Output: "dlrow olleh"
+//Problem-6:Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
 
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
+function generateRandomPassword(length) {
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const numberChars = "0123456789";
+    const specialChars = "!@#$%^&*()_-+=[]{}|;:,.<>?";
+  
+    const allChars =
+      uppercaseChars + lowercaseChars + numberChars + specialChars;
+  
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * allChars.length);
+      password += allChars[randomIndex];
+    }
+  
+    return password;
+  }
+  
+  const passwordLength = 8;
+  const randomPassword = generateRandomPassword(passwordLength);
+//   console.log(randomPassword);
 
-//Input: "hello world"
-//Output: "dlrow olleh"
-
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
-
-//Input: "hello world"
-//Output: "dlrow olleh"
-
-//....................Problem-2 End........................//
-//Problem-2:Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method. 
-
-//Input: "hello world"
-//Output: "dlrow olleh"
-
-//....................Problem-2 End........................//
+//Problem-7:Kindly check it out index.html file.(Solution is there);
+  
 
