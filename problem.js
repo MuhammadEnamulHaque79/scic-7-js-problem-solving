@@ -179,11 +179,11 @@ function calculate(num1, operator, num2) {
   }
 
 
-  console.log(calculate(5, '+', 3)); // Output: 8
-  console.log(calculate(10, '-', 4)); // Output: 6
-  console.log(calculate(3, '*', 6)); // Output: 18
-  console.log(calculate(8, '/', 2)); // Output: 4
-  
+//   console.log(calculate(5, '+', 3)); // Output: 8
+//   console.log(calculate(10, '-', 4)); // Output: 6
+//   console.log(calculate(3, '*', 6)); // Output: 18
+//   console.log(calculate(8, '/', 2)); // Output: 4
+
  
 
  
