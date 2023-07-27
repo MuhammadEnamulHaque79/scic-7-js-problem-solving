@@ -157,6 +157,36 @@ function generateRandomPassword(length) {
   const randomPassword = generateRandomPassword(passwordLength);
 //   console.log(randomPassword);
 
-//Problem-7:Kindly check it out index.html file.(Solution is there);
+//Problem-7:Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
+
+
+function calculate(num1, operator, num2) {
+    switch (operator) {
+      case '+':
+        return num1 + num2;
+      case '-':
+        return num1 - num2;
+      case '*':
+        return num1 * num2;
+      case '/':
+        if (num2 === 0) {
+          return "Error: Division by zero";
+        }
+        return num1 / num2;
+      default:
+        return "Error: Invalid operator";
+    }
+  }
+
+
+  console.log(calculate(5, '+', 3)); // Output: 8
+  console.log(calculate(10, '-', 4)); // Output: 6
+  console.log(calculate(3, '*', 6)); // Output: 18
+  console.log(calculate(8, '/', 2)); // Output: 4
+  
+ 
+
+ 
+
   
 
